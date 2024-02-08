@@ -1,3 +1,4 @@
+import 'package:covid_app/pages/add_patients.dart';
 import 'package:flutter/material.dart';
 
 class CovidApp extends StatelessWidget {
@@ -27,6 +28,7 @@ class CovidApp extends StatelessWidget {
             ElevatedButton(
                 onPressed: ()
                 {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AddPatients()));
 
                 }, child: Text("add patients")),
             SizedBox(height: 20,),
