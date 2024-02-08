@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covid_app/models/patient_models.dart';
 import 'package:http/http.dart' as http;
 class PatientApiService
 {
@@ -26,6 +27,19 @@ class PatientApiService
     else
       {
         throw Exception("Failed");
+      }
+  }
+  Future<List<Patient>> getPatient() async{
+    var client=http.Client();
+    var apiUrl=Uri.parse("http://localhost:3001/api/patient/patient_view");
+    var response=await client.get(apiUrl);
+    if(response.statusCode==200)
+      {
+        return patientFromJson(response.body);
+      }
+    else
+      {
+        return [];
       }
   }
 }
