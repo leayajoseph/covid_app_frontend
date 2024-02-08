@@ -42,4 +42,27 @@ class PatientApiService
         return [];
       }
   }
+  Future<dynamic> sendSearchData(
+      String ph
+      ) async{
+    var client=http.Client();
+    var apiUrl=Uri.parse("http://localhost:3001/api/patient/patient_search");
+    var response=await client.post(apiUrl,
+        headers: <String,String>{
+          "Content-Type":"application/json ; charset=UTF-8"
+        },
+        body:  jsonEncode(<String,String>{
+
+          "phone": ph,
+
+        }));
+    if(response.statusCode==200)
+    {
+      return jsonDecode(response.body);
+    }
+    else
+    {
+      throw Exception("Failed");
+    }
+  }
 }

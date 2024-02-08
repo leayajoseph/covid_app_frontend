@@ -1,4 +1,5 @@
 import 'package:covid_app/pages/add_patients.dart';
+import 'package:covid_app/pages/search_patients.dart';
 import 'package:covid_app/pages/view_patients.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class CovidApp extends StatelessWidget {
             ElevatedButton(
                 onPressed: ()
                 {
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPatient()));
                 }, child: Text("search patients")),
             SizedBox(height: 20,),
             ElevatedButton(
